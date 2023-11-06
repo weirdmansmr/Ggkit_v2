@@ -1,0 +1,20 @@
+.profile {
+  background-color: #4D4C7D;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 60px;
+  border-radius: 30px;
+  color: #f5f5f5;
+  img {
+    width: 60px;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+  }
+  &Text {
+    h4 {
+      color: #F99417;
+    }
+  }
+}
