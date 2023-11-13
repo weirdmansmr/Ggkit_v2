@@ -1,36 +1,26 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import style from "./LessonList.module.scss";
 import LessonItem from "./LessonItem/LessonItem";
-
-const lessonList = [
-	{
-		type: "Лекция",
-		desc: "Основные определения",
-	},
-	{
-		type: "Лекция",
-		desc: "Основные свойства информации",
-	},
-	{
-		type: "Лекция",
-		desc: "Классификация информации",
-	},
-	{
-		type: "Лекция",
-		desc: "Количество информации как мера уменьшения неопределенности знаний",
-	},
-	{
-		type: "Лекция",
-		desc: "Алфавитный подход к определению количества информации",
-	},
-];
+import axios from 'axios'
 
 const LessonList = () => {
+	const [lessonList, setLectionList] = useState([]);
+
+	useEffect(() => {
+		const fetchLessonList = async () => {
+			const { data } = await axios.get(
+				"https://655265d95c69a7790329fd29.mockapi.io/LessonList",
+			);
+			setLectionList(data);
+		};
+		fetchLessonList();
+	}, []);
+
 	return (
 		<main>
 			<div className={style.container}>
 				{lessonList.map((el, id) => (
-					<LessonItem id={id + 1} type={el.type} desc={el.desc} />
+					<LessonItem key={id} id={id + 1} type={el.type} desc={el.desc} />
 				))}
 			</div>
 		</main>
