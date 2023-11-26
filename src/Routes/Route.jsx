@@ -4,6 +4,8 @@ import Home from "../pages/Home";
 import Subjects from "../pages/Subjects";
 import Lessons from "../pages/Lessons";
 import Lesson from "../pages/Lesson";
+import Login from "../pages/Login/Login";
+import SignUp from "../pages/SignUp/SignUp";
 
 function App() {
 	return (
@@ -13,6 +15,8 @@ function App() {
 				<Route path="/subjects" element={<Subjects />} />
 				<Route path="/lessons" element={<Lessons />} />
 				<Route path="/lesson" element={<Lesson />} />
+				<Route path="/login" element={<Login />} />
+				<Route path="/signup" element={<SignUp />} />
 			</Routes>
 			<Sidebar />
 		</div>
