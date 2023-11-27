@@ -8,20 +8,17 @@ const Login = () => {
 
 	const handleLogin = async () => {
 		try {
-			const response = await axios.post(
+			const response = await axios.get(
 				"https://655265d95c69a7790329fd29.mockapi.io/Lesson",
-				{ username, password },
 			);
-
-			if (
-				response.data.username == username &&
-				response.data.password == password
-			) {
-				console.log(username);
-				console.log(password);
-			}
-
-			setLoggedIn(true);
+			console.log(response);
+			response.data.map((el) => {
+				if (el.user === username && el.password === password) {
+					setLoggedIn(true);
+				} else {
+					throw new Error("Неверный логин или пароль");
+				}
+			});
 		} catch (error) {
 			alert(error.message);
 		}
