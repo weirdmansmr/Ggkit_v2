@@ -20,7 +20,7 @@ const LessonList = () => {
 		<main>
 			<div className={style.container}>
 				{lessonList.map((el, id) => (
-					<LessonItem key={id} id={id + 1} type={el.type} desc={el.desc} />
+					<LessonItem key={id} id={id + 1} type={el.type} desc={el.desc} date={el.date} />
 				))}
 			</div>
 		</main>
