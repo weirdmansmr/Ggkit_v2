@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import style from "./LessonItem.module.scss";
 import { Link } from "react-router-dom";
 
@@ -9,14 +9,16 @@ const LessonItem = ({ id, type, desc, date }) => {
 		day: "numeric",
 	});
 	const [dateCheck, setDateCheck] = useState(Date.parse(date) >= +Date.now());
+
 	dateCheck &&
 		setInterval(() => {
 			setDateCheck(Date.parse(date) >= +Date.now());
 			console.log(dateCheck);
 		}, 60000);
+
 	return (
 		<Link
-			to="/lesson"
+			to={dateCheck ? "" : type === "Лекция" ? "/lection" : "/videolection"}
 			className={`${style.lessonItem} ${dateCheck ? style.disabled : ""}`}
 		>
 			<div className={style.lessonText}>
