@@ -19,6 +19,7 @@ const Quiz = () => {
 			),
 		);
 	};
+	
 
 	const submitQuiz = () => {
 		const userAnswers = questions.map((q) => q.userAnswer);
